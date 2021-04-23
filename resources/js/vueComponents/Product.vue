@@ -1,6 +1,6 @@
 
 <template>
-    <div>
+    <div class="product-container">
         <div>
             <p>Produit {{ product.id }}</p>
         </div>
