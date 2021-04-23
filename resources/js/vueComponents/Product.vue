@@ -18,7 +18,7 @@
                 <p>3eme Caracterisque: <span class="bold">{{ product.carac3 }}</span></p>
             </div>
 
-            <categories :categories="product.categories"></categories>
+            <categories v-if="product.categories" :categories="product.categories"></categories>
         </div>
     </div>
 </template>
