@@ -8,7 +8,7 @@
         <div>
             <ul>
                 <li v-for="categ in categs">
-                    <span class="bold">{{ categ.name }} - {{ categ.id }}</span>
+                    <span class="bold">{{ categ.name }}</span>
                 </li>
             </ul>
         </div>
