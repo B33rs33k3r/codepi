@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Catalogue;
+use App\Models\Produits;
+use App\Models\Categories;
 
 class MainController extends Controller
 {
@@ -21,5 +23,23 @@ class MainController extends Controller
         ->get();
 
         return view('main', ['catalogues' => $catalogues]);
+    }
+
+    public function products()
+    {
+        $produits = Produits::with(['categories' => function($query) {
+            $query->where('categories.active', 1);
+        }])
+        ->where('active', 1)
+        ->get();
+
+        return view('products', 'produits' => $produits)
+    }
+
+    public function categories()
+    {
+        $categories = Categories::where('active', 1)->get();
+
+        return view('products', 'categories' => $categories)
     }
 }
