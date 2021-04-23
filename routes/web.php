@@ -15,3 +15,5 @@ use App\Http\Controllers\MainController;
 */
 
 Route::get('/', [MainController::class, 'index']);
+Route::get('/products', [MainController::class, 'products']);
+Route::get('/categories', [MainController::class, 'categories']);
