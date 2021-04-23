@@ -17,7 +17,7 @@ class CreateCatalogueProduitsTable extends Migration
             $table->id();
             $table->integer('catalogue_id');
             $table->integer('produits_id');
-            $table->integer('active')->default(1);
+            $table->boolean('active')->default(TRUE);
             $table->timestamps();
         });
     }
