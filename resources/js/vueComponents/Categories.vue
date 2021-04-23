@@ -7,7 +7,9 @@
 
         <div>
             <ul>
-                <li v-for="categ in categs">{{ categ.name }} - {{ categ.id }}</li>
+                <li v-for="categ in categs">
+                    <span class="bold">{{ categ.name }} - {{ categ.id }}</span>
+                </li>
             </ul>
         </div>
 
@@ -17,7 +19,7 @@
 
 <script>
 module.exports = {
-    mounted: function() { console.log(this.categories); },
+    mounted: function() {},
     props: ['categories'],
     data: function() {
         return {
