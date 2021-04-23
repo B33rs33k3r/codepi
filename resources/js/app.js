@@ -2,12 +2,12 @@ require('./bootstrap');
 
 import Vue from 'vue';
 
+import Product from './/vueComponents/Product.vue';
+Vue.component('product', Product);
+
 var vm = new Vue({
-    mounted: function() {
-        console.log('VueJS');
-    },
     el: '#app',
     data: function() {
         return {};
     }
-})
+});
