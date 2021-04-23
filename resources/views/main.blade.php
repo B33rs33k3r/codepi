@@ -15,7 +15,7 @@
                         <div>
                             <ul>
                                 @foreach($catalogue->produits as $produit)
-                                    <li class="product-container">
+                                    <li>
                                         <product :produit="{{ $produit->toJson() }}"></product>
                                     </li>
                                 @endforeach
