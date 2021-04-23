@@ -27,11 +27,7 @@ class MainController extends Controller
 
     public function products()
     {
-        $produits = Produits::with(['categories' => function($query) {
-            $query->where('categories.active', 1);
-        }])
-        ->where('active', 1)
-        ->get();
+        $produits = Produits::where('active', 1)->get();
 
         return view('products', ['produits' => $produits]);
     }
