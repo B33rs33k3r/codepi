@@ -21,7 +21,13 @@
     </head>
 
     <body class="antialiased">
-        <div id="app" class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+        <div id="app" class="relative items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+
+            <nav class="navbar navbar-light bg-light justify-content-between">
+                <a class="navbar-brand" href="/">Home</a>
+                <a class="nav-item nav-link" href="/products">Produits</a>
+                <a class="nav-item nav-link" href="/categories">Categories</a>
+            </nav>
 
             @yield('content')
 
