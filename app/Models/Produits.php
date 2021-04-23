@@ -11,9 +11,9 @@ class Produits extends Model
 
     protected $table = 'produits';
 
-    public function catalogue()
+    public function catalogues()
     {
-        return $this->belongsToMany(Catalgoue::class, 'catalogue_produits');
+        return $this->belongsToMany(Catalogue::class, 'catalogue_produits');
     }
 
     public function categories()
