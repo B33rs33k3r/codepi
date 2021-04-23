@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use App\Models\Catalogue;
 
 class CatalogueSeeder extends Seeder
 {
@@ -14,6 +14,8 @@ class CatalogueSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Catalogue::factory()
+            ->count(2)
+            ->create();
     }
 }
