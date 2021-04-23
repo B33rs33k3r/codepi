@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,6 @@ use App\Http\Controllers\MainController;
 Route::get('/', [MainController::class, 'index']);
 Route::get('/products', [MainController::class, 'products']);
 Route::get('/categories', [MainController::class, 'categories']);
+
+Route::post('/saveproduct', [PostController::class, 'product']);
+Route::post('/savecategory', [PostController::class, 'product']);
