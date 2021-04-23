@@ -15,6 +15,8 @@ class CreateCatalogueProduitsTable extends Migration
     {
         Schema::create('catalogue_produits', function (Blueprint $table) {
             $table->id();
+            $table->integer('catalogue_id');
+            $table->integer('produits_id');
             $table->timestamps();
         });
     }
