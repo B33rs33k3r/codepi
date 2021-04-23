@@ -18,6 +18,7 @@ class CreateProduitsTable extends Migration
             $table->text('carc1');
             $table->string('carac2');
             $table->integer('carac3');
+            $table->integer('active')->default(1);
             $table->timestamps();
         });
     }
