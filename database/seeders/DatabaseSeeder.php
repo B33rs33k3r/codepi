@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Catalogue;
+use App\Models\Produits;
+use App\Models\Categories;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +16,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $catalogue = Catalogue::factory()
+            ->count(2)
+            ->create();
+
+        $categories = Categories::factory()
+            ->count(4)
+            ->create();
+
+        Produits::factory()
+            ->count(10)
+            ->hasAttached($catalogue)
+            ->hasAttached($categories)
+            ->create();
     }
 }
