@@ -33,13 +33,13 @@ class MainController extends Controller
         ->where('active', 1)
         ->get();
 
-        return view('products', 'produits' => $produits)
+        return view('products', ['produits' => $produits]);
     }
 
     public function categories()
     {
         $categories = Categories::where('active', 1)->get();
 
-        return view('products', 'categories' => $categories)
+        return view('products', ['categories' => $categories]);
     }
 }
