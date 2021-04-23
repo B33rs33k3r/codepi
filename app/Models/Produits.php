@@ -9,6 +9,8 @@ class Produits extends Model
 {
     use HasFactory;
 
+    protected $table = 'produits';
+
     public function catalogue()
     {
         return $this->belongsToMany(Catalgoue::class, 'catalogue_produits');
