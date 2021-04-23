@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Catalogue;
+use App\Models\Produits;
 
 class CatalogueSeeder extends Seeder
 {
@@ -16,6 +17,7 @@ class CatalogueSeeder extends Seeder
     {
         Catalogue::factory()
             ->count(2)
+            ->has(Produits::factory()->count(10))
             ->create();
     }
 }
