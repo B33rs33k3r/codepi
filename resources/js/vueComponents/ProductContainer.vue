@@ -1,12 +1,20 @@
 <template>
     <div>
         <div>
-            <p v-if="create">Creer un produit</p>
-            <p v-else>Mettre a jour le produit {{ new_product.id }}</p>
+            <p>Creer un produit</p>
             <form @submit.prevent="save_product">
-                <input type="text" name="carac1" v-model="new_product.carac1">
-                <input type="text" name="carac2" v-model="new_product.carac2">
-                <input type="number" name="carac3" v-model="new_product.carac3">
+                <div class="mb-3">
+                    <label for="carac1" class="form-label">1er Caracteristique:</label>
+                    <input class="form-control" type="text" name="carac1" v-model="new_product.carac1">
+                </div>
+                <div class="mb-3">
+                    <label for="carac2" class="form-label">2eme Caracteristique:</label>
+                    <input class="form-control" type="text" name="carac2" v-model="new_product.carac2">
+                </div>
+                <div>
+                    <label for="carac3" class="form-label">3eme Caracteristique:</label>
+                    <input class="form-control" type="number" name="carac3" v-model="new_product.carac3">
+                </div>
 
                 <button type="submit">Enregistrer</button>
             </form>
@@ -22,7 +30,7 @@
 
 <script>
 module.exports = {
-    mounted: function() { console.log(this.prods); },
+    mounted: function() {},
     props: ['products'],
     data: function() {
         return {
@@ -32,19 +40,12 @@ module.exports = {
                 carac1: '',
                 carac2: '',
                 carac3: 0
-            },
-            create: true
+            }
         };
     },
     methods: {
         save_product: function() {
-            this.$http.post('/saveproduct', this.new_product).then(response => {
-                console.log(response);
-                /*if (response.ok)
-                    this.prods[response.data.id] = response.data*/
-
-                this.create = true;
-            });
+            this.$http.post('/saveproduct', this.new_product).then(response => {});
         }
     }
 }
