@@ -20,4 +20,4 @@ Route::get('/products', [MainController::class, 'products']);
 Route::get('/categories', [MainController::class, 'categories']);
 
 Route::post('/saveproduct', [PostController::class, 'product']);
-Route::post('/savecategory', [PostController::class, 'product']);
+Route::post('/savecategory', [PostController::class, 'category']);
