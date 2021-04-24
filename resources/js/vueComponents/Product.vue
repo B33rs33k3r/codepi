@@ -6,7 +6,7 @@
         </div>
 
         <div>
-            <form @submit.prevent="save_product">
+            <form @submit.prevent="save">
                 <div class="mb-3">
                     <label for="carac1" class="form-label">1er Caracteristique:</label>
                     <input class="form-control" type="text" name="carac1" v-model="product.carac1">
@@ -23,6 +23,10 @@
                 <button type="submit">Enregistrer</button>
             </form>
         </div>
+
+        <div>
+            <button @click.prevent="deletion">Supprimer</button>
+        </div>
     </div>
 </template>
 
@@ -36,11 +40,14 @@ module.exports = {
         };
     },
     methods: {
-        save_product: function() {
+        save: function() {
             this.$http.post('/saveproduct', this.product).then(response => {
                 if (!response.ok)
                     this.product = this.produit;
             });
+        },
+        deletion: function() {
+            this.$http.post('/deleteproduct', this.product).then(response => {})
         }
     }
 }
