@@ -47,4 +47,17 @@ class PostController extends Controller
 
         return $category->toJson();
     }
+
+    public function productDelete(Request $request)
+    {
+        $validated = $request->validate([
+            'id' => ['required', 'numeric']
+        ]);
+
+        $product = Produits::find((int)$request->id);
+        $product->active = 0;
+        $product->save();
+
+        return $product->toJson();
+    }
 }
