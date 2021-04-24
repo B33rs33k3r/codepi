@@ -36,6 +36,6 @@ class MainController extends Controller
     {
         $categories = Categories::where('active', 1)->get();
 
-        return view('products', ['categories' => $categories]);
+        return view('categories', ['categories' => $categories]);
     }
 }
