@@ -23,7 +23,7 @@ class PostController extends Controller
 
         $product->carac1 = $request->carac1;
         $product->carac2 = $request->carac2;
-        $product->carac3 = $request->carac3;
+        $product->carac3 = (int)$request->carac3;
         $product->save();
 
         return $product->toJson();
