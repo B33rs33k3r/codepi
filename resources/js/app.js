@@ -8,6 +8,9 @@ Vue.use(VueResource);
 import ProductContainer from './/vueComponents/ProductContainer.vue';
 Vue.component('product-container', ProductContainer);
 
+import CategoriesContainer from './/vueComponents/CategoriesContainer.vue';
+Vue.component('categories-container', CategoriesContainer);
+
 import Product from './/vueComponents/Product.vue';
 Vue.component('product', Product);
 
