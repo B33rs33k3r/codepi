@@ -6,19 +6,22 @@
         </div>
 
         <div>
-            <div>
-                <p>1er Caracterisque: <span class="bold">{{ product.carac1 }}</span></p>
-            </div>
+            <form @submit.prevent="save_product">
+                <div class="mb-3">
+                    <label for="carac1" class="form-label">1er Caracteristique:</label>
+                    <input class="form-control" type="text" name="carac1" v-model="product.carac1">
+                </div>
+                <div class="mb-3">
+                    <label for="carac2" class="form-label">2eme Caracteristique:</label>
+                    <input class="form-control" type="text" name="carac2" v-model="product.carac2">
+                </div>
+                <div>
+                    <label for="carac3" class="form-label">3eme Caracteristique:</label>
+                    <input class="form-control" type="number" name="carac3" v-model="product.carac3">
+                </div>
 
-            <div>
-                <p>2eme Caracterisque: <span class="bold">{{ product.carac2 }}</span></p>
-            </div>
-
-            <div>
-                <p>3eme Caracterisque: <span class="bold">{{ product.carac3 }}</span></p>
-            </div>
-
-            <categories v-if="product.categories" :categories="product.categories"></categories>
+                <button type="submit">Enregistrer</button>
+            </form>
         </div>
     </div>
 </template>
@@ -31,6 +34,14 @@ module.exports = {
         return {
             product: this.produit
         };
+    },
+    methods: {
+        save_product: function() {
+            this.$http.post('/saveproduct', this.product).then(response => {
+                if (!response.ok)
+                    this.product = this.produit;
+            });
+        }
     }
 }
 </script>
