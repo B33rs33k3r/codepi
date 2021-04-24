@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produits;
+use App\Models\Categories;
 
 class PostController extends Controller
 {
@@ -32,7 +33,18 @@ class PostController extends Controller
     public function category(Request $request)
     {
         $validated = $request->validate([
-            'name' => ['required', 'string', 'max:510'],
+            'id' => ['required', 'numeric'],
+            'name' => ['required', 'string', 'max:510']
         ]);
+
+        $category = new Categories();
+
+        if ((int)$request->id > 0)
+            $category = Categories::find((int)$request->id);
+
+        $category->name = $request->name;
+        $category->save();
+
+        return $category->toJson();
     }
 }
