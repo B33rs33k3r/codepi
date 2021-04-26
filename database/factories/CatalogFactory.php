@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Produits;
+use App\Models\Catalog;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ProduitsFactory extends Factory
+class CatalogFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Produits::class;
+    protected $model = Catalog::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +22,7 @@ class ProduitsFactory extends Factory
     public function definition()
     {
         return [
-            'carac1' => $this->faker->shuffle('hello-world'),
-            'carac2' => $this->faker->shuffle('hello-world'),
-            'carac3' => $this->faker->randomNumber(3, FALSE)
+            //
         ];
     }
 }
