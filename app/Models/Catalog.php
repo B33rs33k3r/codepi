@@ -29,6 +29,6 @@ class Catalog extends Model
      */
     public function products()
     {
-        return $this->belongsToMany(Produits::class, 'catalog_product');
+        return $this->belongsToMany(Produits::class, 'catalog_product', 'catalog_id', 'product_id');
     }
 }
