@@ -21,7 +21,7 @@ class Catalog extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'catalog_id';
+    protected $primaryKey = 'id';
 
 
     /**

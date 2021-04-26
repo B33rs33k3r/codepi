@@ -21,7 +21,7 @@ class Category extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'category_id';
+    protected $primaryKey = 'id';
 
     /**
      * The products that belong to the category.

@@ -21,7 +21,7 @@ class Product extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'product_id';
+    protected $primaryKey = 'id';
 
     /**
      * The catalogs that belong to the product.
