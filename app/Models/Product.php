@@ -28,7 +28,7 @@ class Product extends Model
      */
     public function catalogs()
     {
-        return $this->belongsToMany(Catalogue::class, 'catalog_product');
+        return $this->belongsToMany(Catalog::class, 'catalog_product');
     }
 
     /**
@@ -36,6 +36,6 @@ class Product extends Model
      */
     public function categories()
     {
-        return $this->belongsToMany(Categories::class, 'product_category');
+        return $this->belongsToMany(Category::class, 'product_category');
     }
 }
