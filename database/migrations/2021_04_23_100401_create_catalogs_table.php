@@ -16,6 +16,7 @@ class CreateCatalogsTable extends Migration
         Schema::create('catalogs', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -26,6 +27,6 @@ class CreateCatalogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('catalogs');
+        Schema::dropIfExists('catalogs')->dropSoftDeletes();
     }
 }

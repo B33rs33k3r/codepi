@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('carac2');
             $table->integer('carac3');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
