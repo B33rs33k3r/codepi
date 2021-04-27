@@ -6,19 +6,19 @@
     <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
         <div class="max-w-12xl mx-auto sm:px-12 lg:px-12">
             <div class="flex justify-center pt-12 sm:justify-start sm:pt-12">
-                @foreach($catalogues as $catalogue)
+                @foreach($catalogs as $catalog)
                     <div class="catalogue">
                         <div>
-                            <p>Catalogue {{ $catalogue->id }}</p>
+                            <p>Catalog {{ $catalog->catalog_id }}</p>
                         </div>
 
                         <div>
                             <ul>
-                                @foreach($catalogue->produits as $product)
+                                @foreach($catalog->products as $product)
                                     <li>
                                         <div class="product-container">
                                             <div>
-                                                <p>Produit {{ $product->id }}</p>
+                                                <p>Product {{ $product->product_id }}</p>
                                             </div>
 
                                             <div>

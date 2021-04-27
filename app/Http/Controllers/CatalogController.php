@@ -20,7 +20,7 @@ class CatalogController extends Controller
         ])
         ->get();
 
-        return view('main', ['catalogs' => $catalogs]);
+        return view('catalog', ['catalogs' => $catalogs]);
     }
 
     /**
