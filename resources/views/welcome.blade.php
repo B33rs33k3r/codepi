@@ -3,16 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Laravel</title>
+        <title>{{  __('meta.title') }} | {{ __('navigation.' . Route::currentRouteName()) }}</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+
         <!-- font-awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
         <!-- Styles -->
         <style>
@@ -22,17 +23,23 @@
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
     </head>
 
+    @php $routeClass = str_replace('.', '-', Route::currentRouteName()); @endphp
+
     <body class="antialiased">
-        <div id="app" class="relative items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
+        <div id="app" class="page-{{ $routeClass }}">
+            <div class="grid-container fluid app-grid">
+                @if(Route::Current()->uri != '/')
+                    <div class="grid-x">
+                        <nav class="cell small-12 medium-12 large-12">
+                            <a href="/catalog">{{ __('navigation.catalog.index') }}</a>
+                            <a href="/product">{{ __('navigation.product.index') }}</a>
+                            <a href="/category">{{ __('navigation.category.index') }}</a>
+                        </nav>
+                    </div>
+                @endif
 
-            <nav class="navbar navbar-light bg-light justify-content-between">
-                <a class="navbar-brand" href="/">Home</a>
-                <a class="nav-item nav-link" href="/products">Produits</a>
-                <a class="nav-item nav-link" href="/categories">Categories</a>
-            </nav>
-
-            @yield('content')
-
+                @yield('content')
+            </div>
         </div>
 
         <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
