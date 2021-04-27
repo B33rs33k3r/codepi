@@ -1,9 +1,11 @@
 require('./bootstrap');
 
 import Vue from 'vue';
-import VueResource from 'vue-resource';
 
-Vue.use(VueResource);
+import $ from 'jquery';
+
+import Foundation from 'foundation-sites';
+Vue.use(Foundation);
 
 import ProductContainer from './/vueComponents/ProductContainer.vue';
 Vue.component('product-container', ProductContainer);
@@ -24,3 +26,5 @@ var vm = new Vue({
         return {};
     }
 });
+
+$(document).foundation();
