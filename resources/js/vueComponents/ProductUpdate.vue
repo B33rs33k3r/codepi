@@ -3,7 +3,7 @@
     <div>
         <form @submit.prevent="save">
             <div class="categoies-wrapper">
-                <div class="category-linked category-block" v-if="product.catalogs">
+                <div class="category-linked category-block" v-if="product.catalogs.length > 0">
                     <p>Linked Catalogs:</p>
                     <ul class="grid-x grid-padding-x grid-margin-x category-detach">
                         <li class="cell auto category-item"
@@ -53,9 +53,9 @@
                 </div>
 
                 <div class="categoies-wrapper">
-                    <div class="category-linked category-block">
+                    <div class="category-linked category-block" v-if="product.categories.length > 0">
                         <p>Linked Categories:</p>
-                        <ul class="grid-x grid-padding-x grid-margin-x category-detach" v-if="product.categories">
+                        <ul class="grid-x grid-padding-x grid-margin-x category-detach">
                             <li class="cell auto category-item" v-for="category in product.categories" @click.prevent="detach_category(category.id)">
                                 <p>{{ category.name }}</p>
                                 <div class="category-action">
@@ -65,9 +65,9 @@
                         </ul>
                     </div>
 
-                    <div class="categories-available category-block">
+                    <div class="categories-available category-block" v-if="categories.length > 0">
                         <p>Available Categories:</p>
-                        <ul class="grid-x grid-padding-x grid-margin-x category-detach" v-if="categories.length > 0">
+                        <ul class="grid-x grid-padding-x grid-margin-x category-detach">
                             <li class="cell auto category-item" v-for="category in categories" @click.prevent="attach_category(category.id)">
                                 <p>{{ category.name }}</p>
                                 <div class="category-action">

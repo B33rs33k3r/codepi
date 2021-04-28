@@ -16,9 +16,9 @@
         <div class="card-section">
 
             <div v-show="!update_state">
-                <div class="category-linked category-block">
+                <div class="category-linked category-block" v-if="product.catalogs.length > 0">
                     <p>Linked Catalogs:</p>
-                    <ul class="grid-x grid-padding-x grid-margin-x category-detach" v-if="product.catalogs">
+                    <ul class="grid-x grid-padding-x grid-margin-x category-detach">
                         <li class="cell auto category-item" v-for="catalog in product.catalogs">
                             <p>{{ catalog.id }}</p>
                         </li>
@@ -34,9 +34,9 @@
                     </ul>
                 </div>
 
-                <div class="category-linked category-block">
+                <div class="category-linked category-block" v-if="product.categories.length > 0">
                     <p>Linked Categories:</p>
-                    <ul class="grid-x grid-padding-x grid-margin-x category-detach" v-if="product.categories">
+                    <ul class="grid-x grid-padding-x grid-margin-x category-detach">
                         <li class="cell auto category-item" v-for="category in product.categories">
                             <p>{{ category.name }}</p>
                         </li>
@@ -76,11 +76,16 @@ module.exports = {
     },
     methods: {
         init: function() {
-            let product_catalogs = JSON.parse(JSON.stringify(this.product_param.catalogs));
-            this.filter_catalogs(product_catalogs);
+            console.log(this.product);
+            let product_catalogs = JSON.parse(JSON.stringify(this.product.catalogs));
 
-            let product_categories = JSON.parse(JSON.stringify(this.product_param.categories));
-            this.filter_categories(product_categories);
+            if (this.product.catalogs.length > 0)
+                this.filter_catalogs(product_catalogs);
+
+            let product_categories = JSON.parse(JSON.stringify(this.product.categories));
+
+            if (this.product.categories.length > 0)
+                this.filter_categories(product_categories);
         },
         deletion: function(id) {
             this.$emit('delete', id);
