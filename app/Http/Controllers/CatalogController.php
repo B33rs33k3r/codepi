@@ -41,7 +41,13 @@ class CatalogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $catalog = new Catalog();
+        $catalog->save();
+
+        return response()->json([
+            'message' => "Insertion complete successfully",
+            'catalog' => $catalog
+        ]);
     }
 
     /**
@@ -86,6 +92,12 @@ class CatalogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $catalog = Catalog::findOrFail($id);
+        $catalog->delete();
+
+        return response()->json([
+            "message" => "Deletion complete successfully",
+            "catalog" => $catalog
+        ]);
     }
 }
