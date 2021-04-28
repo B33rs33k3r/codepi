@@ -3,61 +3,33 @@
 
 @section('content')
 
-    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-        <div class="max-w-12xl mx-auto sm:px-12 lg:px-12">
-            <div class="flex justify-center pt-12 sm:justify-start sm:pt-12">
-                @foreach($catalogs as $catalog)
-                    <div class="catalogue">
-                        <div>
-                            <p>Catalog {{ $catalog->catalog_id }}</p>
-                        </div>
+    <div class="grid-x catalog-grid resource-grid">
+        <div class="cell small-12 medium-10 large-8">
+            <list :list="{{ $catalogs->toJson() }}">
+                <template #form>
+                    <catalog-create-form></catalog-create-form>
+                </template>
 
-                        <div>
-                            <ul>
-                                @foreach($catalog->products as $product)
-                                    <li>
-                                        <div class="product-container">
-                                            <div>
-                                                <p>Product {{ $product->product_id }}</p>
-                                            </div>
-
-                                            <div>
-                                                <div>
-                                                    <p>1er Caracterisque: <span class="bold">{{ $product->carac1 }}</span></p>
-                                                </div>
-
-                                                <div>
-                                                    <p>2eme Caracterisque: <span class="bold">{{ $product->carac2 }}</span></p>
-                                                </div>
-
-                                                <div>
-                                                    <p>3eme Caracterisque: <span class="bold">{{ $product->carac3 }}</span></p>
-                                                </div>
-
-                                                <div>
-                                                    <div>
-                                                        <p>Categories:</p>
-                                                    </div>
-
-                                                    <div>
-                                                        <ul>
-                                                            @foreach($product->categories as $category)
-                                                                <li>
-                                                                    <span class="bold">{{ $category->name }}</span>
-                                                                </li>
-                                                            @endforeach
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+                <template #list-item="slotProps">
+                    <catalog :catalog-item="slotProps.item">
+                        <template #list="slotProps">
+                            <list :list="slotProps.list" :list-class="slotProps.listClass">
+                                <template #list-item="slotProps">
+                                    <product-card :product-item="slotProps.item">
+                                        <template #list="slotProps">
+                                            <list :list="slotProps.list" :list-class="slotProps.listClass">
+                                                <template #list-item="slotProps">
+                                                    <category-pill :category-item="slotProps.item"></category-pill>
+                                                </template>
+                                            </list>
+                                        </template>
+                                    </product-card>
+                                </template>
+                            </list>
+                        </template>
+                    </catalog>
+                </template>
+            </list>
         </div>
     </div>
 
