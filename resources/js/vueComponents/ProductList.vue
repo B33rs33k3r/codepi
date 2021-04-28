@@ -24,7 +24,7 @@
                         </div>
 
                         <div class="categories-available category-block" v-if="catalogs.length > 0">
-                            <p>Available Categories:</p>
+                            <p>Available Catalogs:</p>
                             <ul class="grid-x grid-padding-x grid-margin-x category-detach" >
                                 <li class="cell auto category-item" v-for="catalog in catalogs" @click.prevent="attach_catalog(catalog.id)">
                                     <p>{{ catalog.id }}</p>
