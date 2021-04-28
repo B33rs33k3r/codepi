@@ -76,7 +76,6 @@ module.exports = {
     },
     methods: {
         init: function() {
-            console.log(this.product);
             let product_catalogs = JSON.parse(JSON.stringify(this.product.catalogs));
 
             if (this.product.catalogs.length > 0)
