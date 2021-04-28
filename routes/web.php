@@ -18,5 +18,5 @@ use App\Http\Controllers\ProductController;
 Route::get('/', function() { return view('home'); })->name('home');
 
 Route::resource('catalog', CatalogController::class)->only('index');
-Route::resource('product', ProductController::class)->only('index', 'update', 'destroy');
+Route::resource('product', ProductController::class)->only('index', 'store', 'update', 'destroy');
 Route::resource('category', CategoryController::class)->only('index');
