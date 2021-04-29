@@ -29,8 +29,8 @@ You can clone this project with this command line: git clone https://github.com/
 - 2: You can now procced to database migration and seeding with this command: php artisan migrate:fresh --seed
 
 Do not forget to install javascript and Laravel dependencies with:
-- Laravel: composer install
-- Javascript: npm install
+- composer install
+- npm install
 
 ## License
 
