@@ -25,11 +25,12 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 You can clone this project with this command line: git clone https://github.com/B33rs33k3r/codepi.git
 
-Copy .env.example file and name it .env then fill this file with your environment values.
-You can now procced to database migration and seeding with this command php artisan migrate:fresh --seed
-Do not forget to install javascript and Laravel dependencies with:
- - Laravel: composer install
- - Javascript: npm install
+- 1: Copy .env.example file and name it .env then fill this file with your environment values.
+- 2: You can now procced to database migration and seeding with this command: php artisan migrate:fresh --seed
+
+- Do not forget to install javascript and Laravel dependencies with:
+- Laravel: composer install
+- Javascript: npm install
 
 ## License
 
