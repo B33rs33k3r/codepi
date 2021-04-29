@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,4 @@ Route::get('/', function() { return view('home'); })->name('home');
 
 Route::resource('catalog', CatalogController::class)->only('index', 'store', 'destroy');
 Route::resource('product', ProductController::class)->only('index', 'store', 'update', 'destroy');
-Route::resource('category', CategoryController::class)->only('index');
+Route::resource('category', CategoryController::class)->only('index', 'store', 'update', 'destroy');
