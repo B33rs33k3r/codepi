@@ -49,6 +49,12 @@ Vue.component('category-pill', CategoryPill);
 import CategoryCreateForm from './/vueComponents/CategoryCreateFrom.vue';
 Vue.component('category-create-form', CategoryCreateForm);
 
+import CategoryUpdateFrom from './/vueComponents/CategoryUpdateFrom';
+Vue.component('category-update-form', CategoryUpdateFrom);
+
+import CategoryCard from './/vueComponents/CategoryCard.vue';
+Vue.component('category-card', CategoryCard);
+
 
 var vm = new Vue({
     el: '#app',
