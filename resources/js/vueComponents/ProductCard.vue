@@ -30,6 +30,11 @@ module.exports = {
             product: this.productItem,
         };
     },
+    watch: {
+        productItem: function(newvalue, oldvalue) {
+            this.product = newvalue;
+        }
+    },
     methods: {
         deletion: function() {
 
