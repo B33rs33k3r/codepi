@@ -20,6 +20,14 @@ p { margin: 0; }
 
     .bold { font-weight: 700; }
 
+    .list-container {
+        margin-top: 1rem;
+    }
+
+    .form-create-category {
+        background-color: #FFF;
+    }
+
     .message {
         padding: 5px 10px;
 
@@ -48,6 +56,7 @@ p { margin: 0; }
 
         .control-edit {
             margin: 0 10px;
+            cursor: pointer;
         }
     }
 
@@ -57,12 +66,23 @@ p { margin: 0; }
         justify-content: space-between;
     }
 
-    .button-wrapper .button {
-        margin-bottom: 0;
+    .button-wrapper {
+        &.disable {
+            .button { background-color: #CCC; }
+        }
+
+        .loader {
+            max-width: 100px;
+        }
+
+        .button {
+            margin-bottom: 0;
+        }
     }
 
     .form-container {
         margin: 2rem 0;
+        padding: 1rem 0;
     }
 
     .category-pill {
