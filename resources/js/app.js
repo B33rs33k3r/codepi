@@ -22,8 +22,8 @@ Vue.component('message', Message);
 import CatalogCreateForm from './/vueComponents/CatalogCreateForm.vue';
 Vue.component('catalog-create-form', CatalogCreateForm);
 
-import Catalog from './/vueComponents/Catalog.vue';
-Vue.component('catalog', Catalog);
+import CatalogCard from './/vueComponents/CatalogCard.vue';
+Vue.component('catalog-card', Catalog);
 
 /**
  * Products components.
@@ -45,6 +45,9 @@ Vue.component('product-card', ProductCard);
  */
 import CategoryPill from './/vueComponents/CategoryPill.vue';
 Vue.component('category-pill', CategoryPill);
+
+import CategoryCreateForm from './/vueComponents/CategoryCreateFrom.vue';
+Vue.component('category-create-form', CategoryCreateForm);
 
 
 var vm = new Vue({
