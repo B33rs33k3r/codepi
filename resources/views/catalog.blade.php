@@ -4,14 +4,14 @@
 @section('content')
 
     <div class="grid-x catalog-grid resource-grid">
-        <div class="cell small-12 medium-10 large-8">
+        <div class="cell small-12 medium-12 large-10">
             <list :list="{{ $catalogs->toJson() }}">
                 <template #form>
                     <catalog-create-form></catalog-create-form>
                 </template>
 
                 <template #list-item="slotProps">
-                    <catalog :catalog-item="slotProps.item">
+                    <catalog-card :catalog-item="slotProps.item">
                         <template #list="slotProps">
                             <list :list="slotProps.list" :list-class="slotProps.listClass">
                                 <template #list-item="slotProps">
@@ -27,7 +27,7 @@
                                 </template>
                             </list>
                         </template>
-                    </catalog>
+                    </catalog-card>
                 </template>
             </list>
         </div>
