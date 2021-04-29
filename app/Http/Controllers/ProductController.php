@@ -24,7 +24,7 @@ class ProductController extends Controller
         $catalogs = Catalog::all();
 
         return view(
-            'product',
+            'products',
             [
                 'catalogs' => $catalogs,
                 'products' => $products,
