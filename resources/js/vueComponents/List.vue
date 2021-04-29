@@ -6,7 +6,7 @@
             </div>
         </div>
 
-        <ul class="grid-x grid-padding-x">
+        <ul class="grid-x grid-padding-x list-container">
             <li v-for="item in items" class="cell" :class="list_class">
                 <slot name="list-item" :item="item"></slot>
             </li>
