@@ -23,7 +23,7 @@ import CatalogCreateForm from './/vueComponents/CatalogCreateForm.vue';
 Vue.component('catalog-create-form', CatalogCreateForm);
 
 import CatalogCard from './/vueComponents/CatalogCard.vue';
-Vue.component('catalog-card', Catalog);
+Vue.component('catalog-card', CatalogCard);
 
 /**
  * Products components.
