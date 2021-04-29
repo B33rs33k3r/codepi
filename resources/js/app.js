@@ -7,6 +7,27 @@ Vue.use(VueResource);
 
 Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector("meta[name='csrf-token']").getAttribute('content');
 
+/**
+ * Agnostic components.
+ */
+import List from './/vueComponents/List.vue';
+Vue.component('list', List);
+
+import Message from './/vueComponents/Message.vue';
+Vue.component('message', Message);
+
+/**
+ * Catalogs components.
+ */
+import CatalogCreateForm from './/vueComponents/CatalogCreateForm.vue';
+Vue.component('catalog-create-form', CatalogCreateForm);
+
+import Catalog from './/vueComponents/Catalog.vue';
+Vue.component('catalog', Catalog);
+
+/**
+ * Products components.
+ */
 import ProductList from './/vueComponents/ProductList.vue';
 Vue.component('product-list', ProductList);
 
@@ -16,15 +37,14 @@ Vue.component('product', Product);
 import ProductUpdate from './/vueComponents/ProductUpdate.vue';
 Vue.component('product-update', ProductUpdate);
 
-import ProductContainer from './/vueComponents/ProductContainer.vue';
-Vue.component('product-container', ProductContainer);
+import ProductCard from './/vueComponents/ProductCard.vue';
+Vue.component('product-card', ProductCard);
 
-import CategoriesContainer from './/vueComponents/CategoriesContainer.vue';
-Vue.component('categories-container', CategoriesContainer);
-
-
-import Category from './/vueComponents/Category.vue';
-Vue.component('category', Category);
+/**
+ * Categories components.
+ */
+import CategoryPill from './/vueComponents/CategoryPill.vue';
+Vue.component('category-pill', CategoryPill);
 
 
 var vm = new Vue({
