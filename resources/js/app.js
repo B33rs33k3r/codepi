@@ -22,8 +22,15 @@ Vue.component('message', Message);
 import CatalogCard from './/vueComponents/Catalog/CatalogCard.vue';
 Vue.component('catalog-card', CatalogCard);
 
+import CatalogPillAction from './/vueComponents/Catalog/CatalogPillAction.vue';
+Vue.component('catalog-pill-action', CatalogPillAction);
+
+import CatalogPill from './/vueComponents/Catalog/CatalogPill.vue';
+Vue.component('catalog-pill', CatalogPill);
+
 import CatalogCreateForm from './/vueComponents/Catalog/Forms/CatalogCreateForm.vue';
 Vue.component('catalog-create-form', CatalogCreateForm);
+
 
 /**
  * Products components.
@@ -40,11 +47,21 @@ Vue.component('product-update', ProductUpdate);
 import ProductCard from './/vueComponents/Product/ProductCard.vue';
 Vue.component('product-card', ProductCard);
 
+import ProductCardAction from './/vueComponents/Product/ProductCardAction.vue';
+Vue.component('product-card-action', ProductCardAction);
+
+import ProductUpdateForm from './/vueComponents/Product/Forms/ProductUpdateForm.vue';
+Vue.component('product-update-form', ProductUpdateForm);
+
+
 /**
  * Categories components.
  */
 import CategoryPill from './/vueComponents/Category/CategoryPill.vue';
 Vue.component('category-pill', CategoryPill);
+
+import CategoryPillAction from './/vueComponents/Category/CategoryPillAction.vue';
+Vue.component('category-pill-action', CategoryPillAction);
 
 import CategoryCard from './/vueComponents/Category/CategoryCard.vue';
 Vue.component('category-card', CategoryCard);
