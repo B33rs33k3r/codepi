@@ -10,6 +10,8 @@ use App\Models\Category;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 
+Use App\Factories\ProductUpdateFactory;
+
 class ProductController extends Controller
 {
     /**
@@ -115,17 +117,25 @@ class ProductController extends Controller
         $product->carac2 = $request->carac2;
         $product->carac3 = (int)$request->carac3;
 
-        if (!empty($request->attach_catalogs))
-            $product->catalogs()->attach($request->attach_catalogs);
+        $catalogDetachIds = $product->catalogs->whereNotIn('id', $request->catalogs)->pluck('id')->toArray();
+        if (!empty($catalogDetachIds))
+            $product->catalogs()->detach($catalogDetachIds);
 
-        if (!empty($request->detach_catalogs))
-            $product->catalogs()->detach($request->detach_catalogs);
+        $requestedCatalogIds = $request->catalogs;
+        $catalogIds = $product->catalogs->whereIn('id', $request->catalogs)->pluck('id')->toArray();
+        ProductUpdateFactory::filter($catalogIds, $requestedCatalogIds);
+        if (!empty($requestedCatalogIds))
+            $product->catalogs()->attach($requestedCatalogIds);
 
-        if (!empty($request->attach_categories))
-            $product->categories()->attach($request->attach_categories);
+        $categoryDetachIds = $product->categories->whereNotIn('id', $request->categories)->pluck('id')->toArray();
+        if (!empty($categoryDetachIds))
+            $product->categories()->detach($categoryDetachIds);
 
-        if (!empty($request->detach_categories))
-            $product->categories()->detach($request->detach_categories);
+        $requestedCategoryIds = $request->categories;
+        $categoryIds = $product->categories->whereIn('id', $request->categories)->pluck('id')->toArray();
+        ProductUpdateFactory::filter($categoryIds, $requestedCategoryIds);
+        if (!empty($requestedCategoryIds))
+            $product->categories()->attach($requestedCategoryIds);
 
         $product->save();
 
