@@ -85,11 +85,36 @@ p { margin: 0; }
         padding: 1rem 0;
     }
 
-    .category-pill {
+    .pill {
         text-align: center;
         background-color: #3adb76;
         border-radius: 15px;
         color: #FFF;
+        padding: 5px 15px;
+
+        &-action {
+            width: 100%;
+            display: inline-flex;
+            flex-direction: row;
+            justify-content: space-between;
+            cursor: pointer;
+
+            &-title {
+                width: 100%;
+            }
+        }
+    }
+
+    .attribute {
+        &-title { padding-right: .5rem; }
+    }
+
+    .attribute-container {
+        margin: 1rem 0;
+    }
+
+    .attribute-wrapper {
+        padding: 0 0 0 1rem;
     }
 
     .categories-wrapper {
