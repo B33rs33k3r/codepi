@@ -2,7 +2,7 @@
     <div>
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-12 large-12">
-                <slot name="form"></slot>
+                <slot name="form" :optional-data="optional_data"></slot>
             </div>
         </div>
 
