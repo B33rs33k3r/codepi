@@ -27,14 +27,10 @@ class StoreProductRequest extends FormRequest
             'carac1' => ['required', 'string', 'max:510'],
             'carac2' => ['required', 'string', 'max:255'],
             'carac3' => ['required', 'numeric', 'max:999'],
-            'attach_catalogs' => ['array'],
-            'attach_catalogs.*' => ['numeric', 'min:1'],
-            'detach_catalogs' => ['array'],
-            'detach_catalogs.*' => ['numeric', 'min:1'],
-            'attach_categories' => ['array'],
-            'attach_categories.*' => ['numeric', 'min:1'],
-            'detach_categories' => ['array'],
-            'detach_categories.*' => ['numeric', 'min:1']
+            'catalogs' => ['array'],
+            'catalogs.*' => ['numeric', 'min:1'],
+            'categories' => ['array'],
+            'categories.*' => ['numeric', 'min:1']
         ];
     }
 }
