@@ -26,7 +26,7 @@ class ProductController extends Controller
         $catalogs = Catalog::all();
 
         return view(
-            'products',
+            'product',
             [
                 'catalogs' => $catalogs,
                 'products' => $products,
@@ -59,17 +59,11 @@ class ProductController extends Controller
         $product->carac3 = (int)$request->carac3;
         $product->save();
 
-        if (!empty($request->attach_catalogs))
-            $product->catalogs()->attach($request->attach_catalogs);
+        if (!empty($request->catalogs))
+            $product->catalogs()->attach($request->catalogs);
 
-        if (!empty($request->detach_catalogs))
-            $product->catalogs()->detach($request->detach_catalogs);
-
-        if (!empty($request->attach_categories))
-            $product->categories()->attach($request->attach_categories);
-
-        if (!empty($request->detach_categories))
-            $product->categories()->detach($request->detach_categories);
+        if (!empty($request->categories))
+            $product->categories()->attach($request->categories);
 
         $product->save();
         $product->catalogs;
