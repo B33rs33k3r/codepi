@@ -35,15 +35,6 @@ Vue.component('catalog-create-form', CatalogCreateForm);
 /**
  * Products components.
  */
-import ProductList from './/vueComponents/Product/ProductList.vue';
-Vue.component('product-list', ProductList);
-
-import Product from './/vueComponents/Product/Product.vue';
-Vue.component('product', Product);
-
-import ProductUpdate from './/vueComponents/Product/ProductUpdate.vue';
-Vue.component('product-update', ProductUpdate);
-
 import ProductCard from './/vueComponents/Product/ProductCard.vue';
 Vue.component('product-card', ProductCard);
 
@@ -52,6 +43,9 @@ Vue.component('product-card-action', ProductCardAction);
 
 import ProductUpdateForm from './/vueComponents/Product/Forms/ProductUpdateForm.vue';
 Vue.component('product-update-form', ProductUpdateForm);
+
+import ProductCreateForm from './/vueComponents/Product/Forms/ProductCreateForm.vue';
+Vue.component('product-create-form', ProductCreateForm);
 
 
 /**
