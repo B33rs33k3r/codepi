@@ -8,7 +8,7 @@
 
         <ul class="grid-x grid-padding-x list-container">
             <li v-for="item in items" class="cell" :class="list_class">
-                <slot name="list-item" :item="item"></slot>
+                <slot name="list-item" :item="item" :optional-data="optional_data"></slot>
             </li>
         </ul>
     </div>
@@ -23,12 +23,18 @@ module.exports = {
         // Custom event listener to delete item from child component
         this.$on('delete', this.delete);
     },
-    props: ['list', 'listClass'],
+    props: ['list', 'optionalData', 'listClass', 'eventName'],
     data: function() {
         return {
             items: this.list,
+            optional_data: this.optionalData,
             list_class: this.listClass ? this.listClass : 'small-12 medium-12 large-12'
         };
+    },
+    watch: {
+        list: function(newvalue, oldvalue) {
+            this.items = newvalue;
+        }
     },
     methods: {
         add: function(new_item) {
@@ -38,6 +44,9 @@ module.exports = {
             this.items = this.items.filter(function(item) {
                 return item.id != deleted_item.id;
             });
+
+            if (this.eventName)
+                this.$emit(this.eventName, deleted_item);
         }
     }
 }
