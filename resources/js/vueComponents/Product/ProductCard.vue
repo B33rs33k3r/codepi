@@ -1,3 +1,4 @@
+
 <template>
     <div class="card product-card">
         <div class="card-divider">
@@ -33,11 +34,6 @@ module.exports = {
     watch: {
         productItem: function(newvalue, oldvalue) {
             this.product = newvalue;
-        }
-    },
-    methods: {
-        deletion: function() {
-
         }
     }
 }
