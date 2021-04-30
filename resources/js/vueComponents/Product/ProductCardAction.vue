@@ -90,7 +90,7 @@ module.exports = {
             this.$http.delete(`/product/${this.product.id}`)
             .then(response => {
                 this.set_message(response.status, response.body.message);
-                this.$parent.$emit('delete', response.body.category);
+                this.$parent.$emit('delete', this.product);
                 this.sending = false;
             }, response => {
                 this.set_message(response.status, response.body.message);
